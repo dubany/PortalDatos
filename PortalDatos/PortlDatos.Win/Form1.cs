@@ -9,24 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PortlDatos.Win
+namespace PortalDatos.Win
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             var productosBL = new ProductosBL();
-            var listadeProductos = productosBL.OctenerProductos();
+            var ListadeProductos = productosBL.ObtenerProductos();
 
-            foreach (var producto in listadeProductos)
-            {
-                MessageBox.Show(producto.Descripcion);
-            }
+            listadeProductosBindingSource1.DataSource = ListadeProductos;
+
+
         }
+
+      
     }
 }
