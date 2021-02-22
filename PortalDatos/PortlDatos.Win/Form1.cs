@@ -17,7 +17,7 @@ namespace PortalDatos.Win
         {
             InitializeComponent();
             var productosBL = new ProductosBL();
-            var ListadeProductos = productosBL.ObtenerProductos();
+            var ListadeProductos = ProductosBL.ObtenerProductos();
 
             listadeProductosBindingSource1.DataSource = ListadeProductos;
 
