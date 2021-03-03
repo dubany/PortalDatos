@@ -37,12 +37,12 @@ namespace PortalDatos.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                if(categoria.Descripcion != categoria.Descripcion.Trim())
                 {
                     ModelState.AddModelError("Descripcion", "La descripción no debe contener espacios al inicio o al final");
+
                     return View(categoria);
                 }
-
                 _categoriasBL.GuardarCategoria(categoria);
 
                 return RedirectToAction("Index");

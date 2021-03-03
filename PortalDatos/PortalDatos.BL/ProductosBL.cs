@@ -10,15 +10,32 @@ namespace PortalDatos.BL
     {
         Contexto _contexto;
         public List<Producto> ListadeProductos { get; set; }
+
         public ProductosBL()
         {
             _contexto = new Contexto();
             ListadeProductos = new List<Producto>();
         }
+
         public List<Producto> ObtenerProductos()
         {
+            ListadeProductos = _contexto.Productos
+                 .Include("Categoria")
+                 .OrderBy(r => r.Categoria.Descripcion)
+                 .ThenBy(r => r.Descripcion)
+                 .ToList();
 
-            ListadeProductos = _contexto.Productos.ToList();
+            return ListadeProductos;
+        }
+
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
+                .ToList();
+
             return ListadeProductos;
         }
 
@@ -30,8 +47,11 @@ namespace PortalDatos.BL
             } else
             {
                 var productoExistente = _contexto.Productos.Find(producto.Id);
+
                 productoExistente.Descripcion = producto.Descripcion;
+                productoExistente.CategoriaId = producto.CategoriaId;
                 productoExistente.Precio = producto.Precio;
+                productoExistente.UrlImagen = producto.UrlImagen;
             }
             
             _contexto.SaveChanges();
@@ -39,7 +59,8 @@ namespace PortalDatos.BL
 
         public Producto OctenerProducto(int id)
         {
-            var producto = _contexto.Productos.Find(id);
+            var producto = _contexto.Productos
+                  .Include("Categoria").FirstOrDefault(p => p.Id == id);
 
             return producto;
         }
