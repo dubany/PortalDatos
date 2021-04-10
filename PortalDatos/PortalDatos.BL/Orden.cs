@@ -1,5 +1,4 @@
-﻿using PortalDatos.BL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +10,7 @@ namespace PortalDatos.BL
     {
         public int Id { get; set; }
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public Clientes Cliente { get; set; }
         public DateTime Fecha { get; set; }
         public double Total { get; set; }
         public bool Activo { get; set; }
@@ -21,7 +20,7 @@ namespace PortalDatos.BL
         public Orden()
         {
             Activo = true;
-            Fecha = DateTime.Now;
+           Fecha = DateTime.Now;
 
             ListadeOrdenDetalle = new List<OrdenDetalle>();
         }

@@ -15,13 +15,13 @@ namespace PortalDatos.Win
     {
         public Form1()
         {
-            InitializeComponent();
+           InitializeComponent();
             var productosBL = new ProductosBL();
-            var ListadeProductos = ProductosBL.ObtenerProductos();
+           // var ListadeProductos = ProductosBL.ObtenerProductos();
 
-            listadeProductosBindingSource1.DataSource = ListadeProductos;
+            //listadeProductosBindingSource1.DataSource = ListadeProductos;
 
-
+           
         }
 
       

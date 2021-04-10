@@ -1,8 +1,11 @@
 ﻿@model PortalDatos.BL.Orden
+
 @{
     ViewBag.Title = "Orden Detalle";
 }
+
 <h2>Detalle de la Orden No: @Model.Id</h2>
+
 
 <table class="table table-bordered table-hover">
     <tr>
@@ -17,6 +20,7 @@
         <td>Direccion</td>
         <td>@Model.Cliente.Direccion</td>
     </tr>
+
     <tr>
         <td>Fecha</td>
         <td>@Model.Fecha</td>
@@ -26,14 +30,15 @@
         <td>@Model.Total</td>
     </tr>
 </table>
+
 <p>
-    @Html.ActionLink("Nuevo Producto", "Crear", new { id = Model.Id })
+    @Html.ActionLink("Nuevo Producto", "Crear", new { id = Model.Id})
 </p>
 <table class="table">
     <tr>
         <th></th>
         <th>
-            Producto
+            Producto 
         </th>
         <th>
             Cantidad
@@ -46,26 +51,31 @@
         </th>
         <th></th>
     </tr>
-    @foreach (var item in Model.ListadeOrdenDetalle)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producto.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
 
-                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model.ListadeOrdenDetalle) {
+    <tr>
+        <td>
+            <img src="@item.Producto.UrlImagen" alt="@item.Producto.Descripcion" style="max-width: 64px; height: auto" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.Descripcion)
+        </td>   
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+       
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
 </table>
+
 @Html.ActionLink("Regresar a Ordenes", "Index", "Ordenes")

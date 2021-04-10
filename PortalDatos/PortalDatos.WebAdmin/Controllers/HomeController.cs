@@ -12,6 +12,7 @@ namespace PortalDatos.WebAdmin.Controllers
         public ActionResult Index()
         {
             return View();
+       
         }
     }
 }

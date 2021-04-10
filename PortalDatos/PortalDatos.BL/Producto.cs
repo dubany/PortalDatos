@@ -23,7 +23,7 @@ namespace PortalDatos.BL
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Ingrese el precio")]
-        [Range(0, 1000, ErrorMessage = "Ingrese un precio entre 0 y 1000")]
+        [Range(0, 1000000, ErrorMessage = "Ingrese un precio entre 0 y 1000000")]
         public double Precio { get; set; }
         public Categoria Categoria { get; set; }
         public int CategoriaId { get; set; }

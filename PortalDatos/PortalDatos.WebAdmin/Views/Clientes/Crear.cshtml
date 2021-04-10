@@ -1,4 +1,4 @@
-﻿@model PortalDatos.BL.Cliente
+﻿@model PortalDatos.BL.Clientes
 
 @{
     ViewBag.Title = "Crear";
@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Cliente</h4>
+        <h4>Clientes</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -57,5 +57,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar a la lista", "Index")
 </div>

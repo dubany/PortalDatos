@@ -57,7 +57,7 @@ namespace PortalDatos.BL
             _contexto.SaveChanges();
         }
 
-        public Producto OctenerProducto(int id)
+        public Producto ObtenerProducto(int id)
         {
             var producto = _contexto.Productos
                   .Include("Categoria").FirstOrDefault(p => p.Id == id);

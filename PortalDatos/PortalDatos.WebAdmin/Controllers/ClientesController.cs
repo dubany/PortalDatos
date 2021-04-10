@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 namespace PortalDatos.WebAdmin.Controllers
 {
-
-    
     public class ClientesController : Controller
     {
         ClientesBL _clientesBL;
@@ -27,13 +26,13 @@ namespace PortalDatos.WebAdmin.Controllers
 
         public ActionResult Crear()
         {
-            var nuevoCliente = new Cliente();
+            var nuevoCliente = new Clientes();
 
             return View(nuevoCliente);
         }
 
         [HttpPost]
-        public ActionResult Crear(Cliente cliente)
+        public ActionResult Crear(Clientes cliente)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +52,7 @@ namespace PortalDatos.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Cliente cliente)
+        public ActionResult Editar(Clientes cliente)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +79,7 @@ namespace PortalDatos.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Eliminar(Cliente cliente)
+        public ActionResult Eliminar(Clientes cliente)
         {
             _clientesBL.EliminarCliente(cliente.Id);
 

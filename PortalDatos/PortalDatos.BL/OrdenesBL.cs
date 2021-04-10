@@ -27,7 +27,7 @@ namespace PortalDatos.BL
 
             return ListadeOrdenes;
         }
-
+      
         public List<OrdenDetalle> ObtenerOrdenDetalle(int ordenId)
         {
             var listadeOrdenesDetalle = _contexto.OrdenDetalle
@@ -60,14 +60,14 @@ namespace PortalDatos.BL
             else
             {
                 var ordenExistente = _contexto.Ordenes.Find(orden.Id);
-                ordenExistente.ClienteId = orden.ClienteId;
+                ordenExistente.ClienteId = orden.ClienteId; 
                 ordenExistente.Activo = orden.Activo;
             }
 
             _contexto.SaveChanges();
         }
 
-
+       
 
         public void GuardarOrdenDetalle(OrdenDetalle ordenDetalle)
         {

@@ -7,12 +7,12 @@ using System.Web.Mvc;
 
 namespace PortalDatos.WebAdmin.Controllers
 {
-    public class OrdenesDetalleController : Controller
+    public class OrdenDetalleController : Controller
     {
         OrdenesBL _ordenBL;
         ProductosBL _productosBL;
 
-        public OrdenesDetalleController()
+        public OrdenDetalleController()
         {
             _ordenBL = new OrdenesBL();
             _productosBL = new ProductosBL();
@@ -73,5 +73,5 @@ namespace PortalDatos.WebAdmin.Controllers
             return RedirectToAction("Index", new { id = ordenDetalle.OrdenId });
 
         }
-    }
+    } 
 }

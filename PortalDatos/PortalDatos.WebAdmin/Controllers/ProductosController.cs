@@ -70,7 +70,7 @@ namespace PortalDatos.WebAdmin.Controllers
 
         public ActionResult Editar(int id)
         {
-            var producto = _productosBL.OctenerProducto(id);
+            var producto = _productosBL.ObtenerProducto(id);
             var categorias = _categoriasBL.ObtenerCategorias();
 
             ViewBag.CategoriaId =
@@ -111,14 +111,14 @@ namespace PortalDatos.WebAdmin.Controllers
 
         public ActionResult Detalle(int id)
         {
-            var producto = _productosBL.OctenerProducto(id);
+            var producto = _productosBL.ObtenerProducto(id);
 
             return View(producto);
         }
 
         public ActionResult Eliminar(int id)
         {
-            var producto = _productosBL.OctenerProducto(id);
+            var producto = _productosBL.ObtenerProducto(id);
 
             return View(producto);
         }

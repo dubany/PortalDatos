@@ -1,4 +1,4 @@
-﻿@model PortalDatos.BL.Cliente
+﻿@model PortalDatos.BL.Clientes
 
 @{
     ViewBag.Title = "Detalle";
@@ -7,7 +7,7 @@
 <h2>Detalle</h2>
 
 <div>
-    <h4>Cliente</h4>
+    <h4>Clientes</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -45,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
 </p>

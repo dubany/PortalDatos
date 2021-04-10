@@ -34,7 +34,7 @@ namespace PortalDatos.WebAdmin.Controllers
             var nuevaOrden = new Orden();
             var clientes = _clientesBL.ObtenerClientesActivos();
 
-            ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
+            ViewBag.ClienteId = new SelectList(clientes,"Id", "Nombre");
             return View(nuevaOrden);
         }
 
@@ -43,7 +43,7 @@ namespace PortalDatos.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (orden.ClienteId == 0)
+                if (orden.ClienteId ==0)
                 {
                     ModelState.AddModelError("ClienteId", "Seleccione un Cliente");
                     return View(orden);
@@ -75,7 +75,7 @@ namespace PortalDatos.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (orden.ClienteId == 0)
+                if (orden.ClienteId ==0)
                 {
                     ModelState.AddModelError("ClienteId", "Seleccione un Cliente");
                     return View(orden);
@@ -91,16 +91,16 @@ namespace PortalDatos.WebAdmin.Controllers
 
             return View(orden);
         }
-
+        
         public ActionResult Detalle(int id)
         {
             var orden = _ordenesBL.ObtenerOrden(id);
 
 
-            return View(orden);
+                return View(orden);
 
         }
-
+            
     }
 
 }
